@@ -13,6 +13,12 @@ client = Client(account_sid, auth_token)
 
 
 def arp_detect(pkt):
+    '''
+    Inspects a packet for an ARP layer with source MAC address matching the specified Dash MAC above
+
+    :param pkt:
+    :return: void
+    '''
     if (pkt.haslayer(ARP)):
         if pkt[ARP].hwsrc == dash_mac_address:
             #print pkt[ARP].hwsrc
